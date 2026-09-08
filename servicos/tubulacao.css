@@ -688,7 +688,7 @@
 
     justify-content: space-between;
 
-    width: 225px;
+    width: 280px;
 
     height: 48px;
 
@@ -1135,4 +1135,12 @@
 
     }
 
+}
+
+/* Ajuste mobile — botão completo sem corte */
+@media (max-width: 700px) {
+    .botao-projeto {
+        width: 100% !important;
+        max-width: 280px !important;
+    }
 }
