@@ -1,0 +1,116 @@
+RELATÓRIO — CORREÇÃO DO MENU SERVIÇOS
+RM Engenharia — versão corrigida
+
+OBJETIVO
+Corrigir o menu mobile para Android e iOS:
+- tocar na seta de Serviços abre as opções;
+- tocar novamente na mesma seta fecha as opções;
+- tocar na seta não navega para outra página;
+- o submenu aparece sobre o conteúdo, sem empurrar o site;
+- a posição de rolagem da página é preservada;
+- o texto "Serviços" continua sendo um link normal;
+- ao fechar o menu principal, o submenu também é fechado.
+
+ERROS ENCONTRADOS NA VERSÃO ORIGINAL
+As linhas abaixo são referências à versão recebida no ZIP original, antes desta correção.
+
+1) templaste/global.css
+   - linhas 2250–2265:
+     o submenu podia abrir por :hover, :focus-within e :active.
+     Isso entra em conflito com o estado controlado pela classe "aberto",
+     principalmente no Safari/iOS, que pode manter foco após o toque.
+   - linhas 2673–2679:
+     o menu aberto tinha max-height e overflow-y:auto.
+     Isso transformava o menu em uma área rolável e podia causar o
+     comportamento de rolagem/empurrar o conteúdo.
+   - linhas 2717–2727:
+     havia uma correção anterior tentando controlar .menu-dropdown,
+     mas ela ainda deixava várias regras anteriores ativas.
+
+2) templaste/index.css
+   - linhas 9523–9531:
+     o menu mobile usava overflow-y:auto e max-height.
+   - linhas 9551–9557:
+     o submenu recebia top: calc(100% + 14px), separado do posicionamento
+     definitivo e sujeito às regras anteriores.
+   - linhas 9635–9669:
+     havia regras adicionais usando :has() para reabrir/fechar o submenu.
+     Isso duplicava a lógica e aumentava a possibilidade de conflito no Safari.
+
+3) templaste/sobre.css
+   - linhas 5157–5187:
+     existia outra implementação do abre/fecha do submenu.
+     Como sobre.css é carregado depois de global.css, essas regras podiam
+     sobrescrever o comportamento global.
+
+4) HTML — todas as páginas do menu
+   Havia versões diferentes do controle da seta:
+   - alguns arquivos usavam onclick diretamente no <a> e no <span>;
+   - outros dependiam de scripts separados;
+   - outros tinham somente o comportamento do link.
+   Isso deixava Android, iOS e as páginas individuais com comportamentos
+   diferentes.
+
+5) servicos/galpao.html
+   Na versão original, aproximadamente linhas 69–82, havia dois <a
+   class="menu-servicos"> consecutivos dentro de .menu-dropdown.
+   Isso era uma estrutura HTML incorreta e poderia gerar comportamento
+   diferente entre navegadores.
+
+6) Scripts "Controle da seta de Serviços"
+   Havia scripts que interceptavam pointerdown/click e somente faziam
+   preventDefault()/stopPropagation(), enquanto o estado "aberto" era
+   controlado por outros handlers/onclicks. A lógica estava fragmentada.
+
+O QUE FOI ALTERADO
+
+- Padronização do HTML do menu nas 9 páginas.
+- Remoção dos onclicks conflitantes da seta e do botão mobile.
+- Criação de um único controlador de menu em cada página, com:
+  * pointerdown para toque;
+  * click protegido contra navegação;
+  * Enter/Espaço para teclado;
+  * aria-expanded atualizado;
+  * fechamento do submenu quando o menu principal fecha.
+- A seta controla exclusivamente a classe .aberto.
+- No mobile, :hover, :focus-within e :active não abrem mais o submenu.
+- O submenu passou para position:absolute e não ocupa espaço no fluxo.
+- O menu mobile não usa mais a rolagem interna para acomodar o submenu.
+- Ao tocar na seta, a posição atual de scroll é preservada para evitar
+  reposicionamento automático do Safari/iOS.
+- global.css recebeu a correção definitiva.
+- index.css e sobre.css também receberam a mesma proteção porque são
+  carregados depois de global.css e continham regras específicas de menu.
+
+TESTES REALIZADOS
+
+Teste automatizado do comportamento do menu nas 9 páginas:
+- Android: PASS
+- iOS: PASS
+- abrir pela seta: PASS
+- fechar pela mesma seta: PASS
+- URL permanece igual ao tocar na seta: PASS
+- posição de scroll preservada: PASS
+- sem erros JavaScript no teste: PASS
+
+Também foi verificado o comportamento desktop:
+- hover do menu Serviços continua abrindo normalmente.
+
+ARQUIVOS PRINCIPAIS ALTERADOS
+- templaste/global.css
+- templaste/index.css
+- templaste/sobre.css
+- templaste/index.html
+- templaste/servico.html
+- templaste/sobre.html
+- templaste/contato.html
+- servicos/construcao.html
+- servicos/metal.html
+- servicos/alvenaria.html
+- servicos/galpao.html
+- servicos/tubulacao.html
+
+IMPORTANTE
+O relatório aponta os problemas relacionados ao menu Serviços encontrados
+na versão recebida. Ele não afirma que todas as outras partes do site foram
+auditadas em profundidade.

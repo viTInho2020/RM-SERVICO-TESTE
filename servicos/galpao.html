@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galpões | RM Engenharia</title>
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="../templaste/global.css">
+
+    <!-- CSS ESPECÍFICO DA PÁGINA -->
+    <link rel="stylesheet" href="galpao.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="cabecalho">
+
+        <div class="container cabecalho-conteudo">
+
+            <!-- LOGO -->
+
+            <a href="../templaste/index.html" class="logo">
+
+                <img src="../imagens/logo-rm-engenharia.png"
+                    alt="RM Engenharia - Serviços e Construções">
+
+            </a>
+
+
+            <!-- MENU MOBILE -->
+
+            <button class="menu-mobile"
+                type="button"
+                aria-label="Abrir menu">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <!-- MENU -->
+
+            <nav class="menu">
+
+                <a href="../templaste/index.html">
+                    Início
+                </a>
+
+
+                <!-- SERVIÇOS -->
+
+                <div class="menu-dropdown">
+
+                    <a
+                        href="../templaste/servico.html"
+                        class="menu-servicos"
+                        aria-expanded="false"
+                    >
+                        Serviços
+                        <span
+                            class="seta"
+                            role="button"
+                            tabindex="0"
+                            aria-label="Abrir opções de serviços"
+                        ></span>
+                    </a>
+
+                    <div class="dropdown-opcoes">
+
+
+                        <a href="construcao.html">
+                            Construção Civil e Facilities
+                        </a>
+
+
+                        <a href="metal.html">
+                            Estruturas Metálicas
+                        </a>
+
+
+                        <a href="../templaste/servico.html">
+                            Portfólio de Obras
+                        </a>
+
+
+                    </div>
+                </div>
+
+
+                <a href="../templaste/sobre.html">
+                    Sobre
+                </a>
+
+
+                <a href="../templaste/contato.html">
+                    Contato
+                </a>
+
+            </nav>
+
+
+            <!-- BOTÃO ORÇAMENTO -->
+
+           <a
+            href="https://wa.me/5512988872221?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20RM%20Engenharia.%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20mais%20informa%C3%A7%C3%B5es."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="botao-orcamento"
+        >
+            FAÇA SEU ORÇAMENTO
+        </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="projetos-hero">
+
+
+        <div class="hero-conteudo">
+
+
+            <span class="hero-linha"></span>
+
+
+            <span class="hero-label">
+                RM ENGENHARIA
+            </span>
+
+
+            <h1>
+                GALPÕES
+            </h1>
+
+
+            <p>
+                Projetos e execução de galpões com qualidade,
+                segurança e eficiência.
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PROJETO DESTAQUE
+         ===================================================== -->
+
+    <section class="projeto-destaque">
+
+
+        <div class="projeto-container">
+
+
+
+            <!-- =================================================
+                 GALERIA
+                 ================================================= -->
+
+            <div class="projeto-galeria">
+
+
+                <!-- FOTO PRINCIPAL -->
+
+                <div class="foto-principal"
+                    onclick="abrirLightbox()">
+
+
+                    <img id="fotoPrincipal"
+                        src="../imagens/galpao-rm.jpeg"
+                        alt="Projeto de galpão RM Engenharia">
+
+
+
+                    <!-- SETA ANTERIOR -->
+
+                    <button class="seta-galeria esquerda"
+                        aria-label="Foto anterior"
+                        onclick="event.stopPropagation(); anteriorFoto();">
+
+                        ‹
+
+                    </button>
+
+
+
+                    <!-- SETA PRÓXIMA -->
+
+                    <button class="seta-galeria direita"
+                        aria-label="Próxima foto"
+                        onclick="event.stopPropagation(); proximaFoto();">
+
+                        ›
+
+                    </button>
+
+
+
+                    <!-- CONTADOR -->
+
+                    <div class="contador-fotos">
+
+                        <span id="fotoAtual">
+                            01
+                        </span>
+
+                        <span>
+                            /
+                        </span>
+
+                        <span id="totalFotos">
+                            02
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- PROGRESSO -->
+
+                    <div class="linha-progresso"
+                        id="linhaProgresso">
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MINIATURAS
+                     ================================================= -->
+
+                <div class="miniaturas" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+
+
+                    <!-- FOTO 1 -->
+
+                    <button class="miniatura ativa"
+                        onclick="selecionarFoto(0)"
+                        aria-label="Selecionar foto 1">
+
+                        <img src="../imagens/sobre-rm.png"
+                            alt="Galpão - imagem 1">
+
+                    </button>
+
+
+
+                    <!-- FOTO 2 -->
+
+                    <button class="miniatura"
+                        onclick="selecionarFoto(1)"
+                        aria-label="Selecionar foto 2">
+
+                        <img src="../imagens/galpao-rm.jpeg"
+                            alt="Galpão - imagem 2">
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 INFORMAÇÕES
+                 ================================================= -->
+
+            <div class="projeto-informacoes">
+
+
+                <span class="projeto-label">
+                    PROJETO EM DESTAQUE
+                </span>
+
+
+                <h2>
+                    Construção de Galpões
+                </h2>
+
+
+
+                <!-- LOCALIZAÇÃO -->
+
+                <div class="localizacao">
+
+
+                    <span class="icone-local">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </span>
+
+
+                    <span>
+                        Projetos sob medida
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- DESCRIÇÃO -->
+
+                <p class="texto-projeto">
+A obra contemplou a construção completa de um galpão industrial, desde a execução das fundações e alvenaria até a fabricação e montagem 
+das estruturas metálicas, cobertura e fechamentos. Para atender à necessidade de circulação e movimentação de cargas pesadas, 
+foi executado piso em blocos intertravados, proporcionando maior resistência, durabilidade e capacidade de suporte à operação.
+
+                </p>
+
+
+
+                <!-- =================================================
+                     CARACTERÍSTICAS
+                     ================================================= -->
+
+                <div class="caracteristicas">
+
+
+
+                    <!-- ESTRUTURA -->
+
+                    <div class="caracteristica">
+
+
+                        <div class="caracteristica-icone">
+
+                            <i class="fa-solid fa-industry"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Estrutura
+                            </strong>
+
+                            <span>
+                                Alta resistência
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- SOB MEDIDA -->
+
+                    <div class="caracteristica">
+
+
+                        <div class="caracteristica-icone">
+
+                            <i class="fa-solid fa-ruler-combined"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Sob medida
+                            </strong>
+
+                            <span>
+                                Projeto personalizado
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- SEGURANÇA -->
+
+                    <div class="caracteristica">
+
+
+                        <div class="caracteristica-icone">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Segurança
+                            </strong>
+
+                            <span>
+                                Execução profissional
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     BOTÃO WHATSAPP
+                     ================================================= -->
+
+
+
+<a
+    href="https://wa.me/5512988872221?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20um%20projeto%20de%20galp%C3%A3o.%20Vim%20pelo%20site%20da%20RM%20Engenharia."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="botao-projeto"
+>
+    <span>Solicitar orçamento</span>
+    <span>→</span>
+</a>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIS PROJETOS
+         ===================================================== -->
+
+    <section class="mais-projetos">
+
+
+        <div class="mais-projetos-container">
+
+
+            <span>
+                PORTFÓLIO
+            </span>
+
+
+            <h2>
+                Conheça outros serviços
+            </h2>
+
+
+            <p>
+                Confira outros projetos e soluções desenvolvidos
+                pela RM Engenharia.
+            </p>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LIGHTBOX
+         ===================================================== -->
+
+    <div class="lightbox"
+        id="lightbox">
+
+
+        <button class="fechar-lightbox"
+            aria-label="Fechar imagem"
+            onclick="fecharLightbox()">
+
+            ×
+
+        </button>
+
+
+        <img id="lightboxImagem"
+            src=""
+            alt="Imagem ampliada do projeto">
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+
+        /* =====================================================
+           GALERIA
+           ===================================================== */
+
+
+        const fotos = [
+
+            "../imagens/sobre-rm.png",
+
+            "../imagens/galpao-rm.jpeg",
+
+        ];
+
+
+
+        let fotoAtual = 0;
+
+
+
+        /* =====================================================
+           ATUALIZAR GALERIA
+           ===================================================== */
+
+        function atualizarGaleria() {
+
+
+            const imagem =
+                document.getElementById("fotoPrincipal");
+
+
+            const contador =
+                document.getElementById("fotoAtual");
+
+
+            const progresso =
+                document.getElementById("linhaProgresso");
+
+
+
+            imagem.style.opacity = "0";
+
+
+
+            setTimeout(() => {
+
+
+                imagem.src =
+                    fotos[fotoAtual];
+
+
+                imagem.style.opacity =
+                    "1";
+
+
+            }, 150);
+
+
+
+            contador.textContent =
+                String(fotoAtual + 1)
+                    .padStart(2, "0");
+
+
+
+            progresso.style.width =
+                ((fotoAtual + 1) / fotos.length) * 85 + "px";
+
+
+
+            document
+                .querySelectorAll(".miniatura")
+                .forEach((miniatura, index) => {
+
+
+                    miniatura.classList.toggle(
+                        "ativa",
+                        index === fotoAtual
+                    );
+
+
+                });
+
+
+        }
+
+
+
+        /* =====================================================
+           SELECIONAR FOTO
+           ===================================================== */
+
+        function selecionarFoto(index) {
+
+
+            fotoAtual = index;
+
+
+            atualizarGaleria();
+
+
+        }
+
+
+
+        /* =====================================================
+           FOTO ANTERIOR
+           ===================================================== */
+
+        function anteriorFoto() {
+
+
+            fotoAtual--;
+
+
+
+            if (fotoAtual < 0) {
+
+                fotoAtual =
+                    fotos.length - 1;
+
+            }
+
+
+
+            atualizarGaleria();
+
+
+        }
+
+
+
+        /* =====================================================
+           PRÓXIMA FOTO
+           ===================================================== */
+
+        function proximaFoto() {
+
+
+            fotoAtual++;
+
+
+
+            if (fotoAtual >= fotos.length) {
+
+                fotoAtual = 0;
+
+            }
+
+
+
+            atualizarGaleria();
+
+
+        }
+
+
+
+        /* =====================================================
+           ABRIR LIGHTBOX
+           ===================================================== */
+
+        function abrirLightbox() {
+
+
+            const lightbox =
+                document.getElementById("lightbox");
+
+
+            const imagem =
+                document.getElementById("lightboxImagem");
+
+
+
+            imagem.src =
+                fotos[fotoAtual];
+
+
+
+            lightbox.classList.add("aberto");
+
+
+
+            document.body.style.overflow =
+                "hidden";
+
+
+        }
+
+
+
+        /* =====================================================
+           FECHAR LIGHTBOX
+           ===================================================== */
+
+        function fecharLightbox() {
+
+
+            const lightbox =
+                document.getElementById("lightbox");
+
+
+            lightbox.classList.remove("aberto");
+
+
+
+            document.body.style.overflow =
+                "";
+
+
+        }
+
+
+
+        /* =====================================================
+           FECHAR CLICANDO FORA DA IMAGEM
+           ===================================================== */
+
+        document
+            .getElementById("lightbox")
+            .addEventListener("click", function(event) {
+
+
+                if (event.target === this) {
+
+                    fecharLightbox();
+
+                }
+
+
+            });
+
+
+
+        /* =====================================================
+           TECLADO
+           ===================================================== */
+
+        document.addEventListener("keydown", function(event) {
+
+
+            /* ESC */
+
+            if (event.key === "Escape") {
+
+                fecharLightbox();
+
+            }
+
+
+
+            /* SETA ESQUERDA */
+
+            if (event.key === "ArrowLeft") {
+
+                anteriorFoto();
+
+            }
+
+
+
+            /* SETA DIREITA */
+
+            if (event.key === "ArrowRight") {
+
+                proximaFoto();
+
+            }
+
+
+        });
+
+
+
+        /* =====================================================
+           INICIALIZAR GALERIA
+           ===================================================== */
+
+        atualizarGaleria();
+
+</script>
+
+<script>
+/* =========================================================
+   MENU GLOBAL — MOBILE ANDROID / IOS
+   ========================================================= */
+(function () {
+    function iniciarMenuGlobal() {
+        const menu = document.querySelector(".menu");
+        const botaoMenu = document.querySelector(".menu-mobile");
+        const servicos = document.querySelector(".menu-servicos");
+        const seta = servicos ? servicos.querySelector(".seta") : null;
+
+        if (!menu || !botaoMenu || !servicos || !seta) return;
+
+        /* BOTÃO PRINCIPAL DO MENU */
+        if (!botaoMenu.dataset.menuGlobalConfigurado) {
+            botaoMenu.dataset.menuGlobalConfigurado = "true";
+
+            botaoMenu.addEventListener("click", function () {
+                const aberto = menu.classList.toggle("menu-aberto");
+
+                botaoMenu.classList.toggle("ativo", aberto);
+                botaoMenu.setAttribute(
+                    "aria-label",
+                    aberto ? "Fechar menu" : "Abrir menu"
+                );
+
+                /* Mantém o X nas versões que usam texto no botão.
+                   Nas versões com três spans, preserva o desenho atual. */
+                if (!botaoMenu.children.length) {
+                    botaoMenu.textContent = aberto ? "✕" : "☰";
+                }
+
+                /* Ao fechar o menu principal, fecha Serviços também. */
+                if (!aberto) {
+                    servicos.classList.remove("aberto");
+                    servicos.setAttribute("aria-expanded", "false");
+                }
+            });
+        }
+
+        /* SETA DE SERVIÇOS */
+        if (!seta.dataset.servicosGlobalConfigurado) {
+            seta.dataset.servicosGlobalConfigurado = "true";
+
+            function alternarServicos(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const scrollTop = window.scrollY;
+                const aberto = !servicos.classList.contains("aberto");
+
+                servicos.classList.toggle("aberto", aberto);
+                servicos.setAttribute("aria-expanded", String(aberto));
+
+                /* iOS Safari pode tentar reposicionar a página ao focar
+                   um elemento dentro de um menu sobreposto. Mantemos
+                   exatamente a posição que o usuário estava. */
+                requestAnimationFrame(function () {
+                    window.scrollTo(0, scrollTop);
+                    requestAnimationFrame(function () {
+                        window.scrollTo(0, scrollTop);
+                    });
+                });
+            }
+
+            /* pointerdown é usado no toque para impedir que o link
+               receba a navegação antes do submenu abrir/fechar. */
+            seta.addEventListener("pointerdown", alternarServicos);
+
+            /* Compatibilidade com navegadores que não disparam pointer
+               events como esperado. */
+            seta.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            });
+
+            seta.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" || event.key === " ") {
+                    alternarServicos(event);
+                }
+            });
+        }
+
+        /* Estado inicial correto */
+        if (!servicos.classList.contains("aberto")) {
+            servicos.setAttribute("aria-expanded", "false");
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", iniciarMenuGlobal);
+    } else {
+        iniciarMenuGlobal();
+    }
+})();
+</script>
+
+</body>
+
+</html>

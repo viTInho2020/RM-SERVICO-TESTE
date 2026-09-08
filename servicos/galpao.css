@@ -1,0 +1,1245 @@
+/* =========================================================
+   GALPÕES - RM ENGENHARIA
+   MESMO PADRÃO VISUAL DA PÁGINA DE ESTRUTURAS METÁLICAS
+   ========================================================= */
+
+
+/* =========================================================
+   PÁGINA DE PROJETOS
+   RM ENGENHARIA
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.projetos-hero {
+    position: relative;
+
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 45px;
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 30%,
+            rgba(255, 118, 0, 0.14),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #070b0f,
+            #0c1117
+        );
+
+    border-bottom: 1px solid rgba(255, 118, 0, 0.18);
+}
+
+
+/* =========================================================
+   DETALHES
+   ========================================================= */
+
+.projetos-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    top: -530px;
+    left: -100px;
+
+    border: 1px solid rgba(255, 118, 0, 0.08);
+
+    transform: rotate(45deg);
+
+}
+
+
+.projetos-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    right: -180px;
+    bottom: -570px;
+
+    border: 1px solid rgba(255, 118, 0, 0.08);
+
+    transform: rotate(45deg);
+
+}
+
+
+/* =========================================================
+   HERO CONTEÚDO
+   ========================================================= */
+
+.hero-conteudo {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+}
+
+
+.hero-linha {
+
+    display: block;
+
+    width: 44px;
+
+    height: 3px;
+
+    margin: 0 auto 17px;
+
+    background: #ff7600;
+
+    box-shadow:
+        0 0 14px rgba(255, 118, 0, 0.55);
+
+}
+
+
+.hero-label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #ff7600;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+}
+
+
+.hero-conteudo h1 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(52px, 6vw, 6px);
+
+    line-height: 1;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.hero-conteudo p {
+
+    margin: 14px 0 0;
+
+    color: rgba(255,255,255,0.7);
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================================
+   PROJETO DESTAQUE
+   ========================================================= */
+
+.projeto-destaque {
+
+    position: relative;
+
+    padding: 70px 30px 90px;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(255, 118, 0, 0.045),
+            transparent 35%
+        ),
+
+        #080d12;
+
+    overflow: hidden;
+
+}
+
+
+.projeto-destaque::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    left: -450px;
+    top: 250px;
+
+    border: 1px solid rgba(255,255,255,0.025);
+
+    transform: rotate(45deg);
+
+}
+
+
+.projeto-container {
+
+    width: 100%;
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(340px, 0.85fr);
+
+    gap: 48px;
+
+    align-items: center;
+
+}
+
+
+/* =========================================================
+   GALERIA PRINCIPAL
+   ========================================================= */
+
+.projeto-galeria {
+
+    width: 100%;
+
+    min-width: 0;
+
+}
+
+
+.foto-principal {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 560px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #111820;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 24px 70px rgba(0,0,0,0.35);
+
+    cursor: zoom-in;
+
+}
+
+
+.foto-principal::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.45),
+            transparent 28%
+        );
+
+}
+
+
+.foto-principal img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.35s ease;
+
+}
+
+
+.foto-principal:hover img {
+
+    transform: scale(1.015);
+
+}
+
+
+.foto-principal .seta-galeria,
+.foto-principal .contador-fotos,
+.foto-principal .linha-progresso {
+
+    z-index: 3;
+
+}
+
+
+/* =========================================================
+   MINIATURAS
+   ========================================================= */
+
+.miniaturas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 15px;
+
+    margin-top: 18px;
+
+}
+
+
+.miniatura {
+
+    position: relative;
+
+    height: 100px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 2px solid transparent;
+
+    border-radius: 6px;
+
+    background: #111820;
+
+    cursor: pointer;
+
+}
+
+
+.miniatura img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    opacity: 0.62;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+
+}
+
+
+.miniatura:hover img {
+
+    opacity: 1;
+
+    transform: scale(1.05);
+
+}
+
+
+.miniatura.ativa {
+
+    border-color: #ff7600;
+
+}
+
+
+.miniatura.ativa img {
+
+    opacity: 1;
+
+}
+
+
+/* =========================================================
+   SETAS
+   ========================================================= */
+
+.seta-galeria {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 43px;
+
+    height: 43px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.55);
+
+    color: #ffffff;
+
+    font-size: 29px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(5px);
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+
+}
+
+
+.seta-galeria:hover {
+
+    background: #ff7600;
+
+    border-color: #ff7600;
+
+    color: #ffffff;
+
+}
+
+
+.seta-galeria.esquerda {
+
+    left: 18px;
+
+}
+
+
+.seta-galeria.direita {
+
+    right: 18px;
+
+}
+
+
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+.contador-fotos {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 19px;
+
+    display: flex;
+
+    gap: 7px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.contador-fotos span:first-child {
+
+    color: #ff7600;
+
+}
+
+
+.linha-progresso {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 11px;
+
+    width: 85px;
+
+    height: 2px;
+
+    background: #ff7600;
+
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+   ========================================================= */
+
+.projeto-informacoes {
+
+    padding: 10px 0;
+
+}
+
+
+.projeto-label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #ff7600;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.projeto-informacoes h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(30px, 3vw, 43px);
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+}
+
+
+/* =========================================================
+   LOCALIZAÇÃO
+   ========================================================= */
+
+.localizacao {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 17px;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 15px;
+
+}
+
+
+.icone-local {
+
+    color: #ff7600;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   TEXTO
+   ========================================================= */
+
+.texto-projeto {
+
+    margin: 23px 0 0;
+
+    color: rgba(255,255,255,0.62);
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+}
+
+
+/* =========================================================
+   CARACTERÍSTICAS
+   ========================================================= */
+
+.caracteristicas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 30px;
+
+}
+
+
+.caracteristica {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+}
+
+
+.caracteristica-icone {
+
+    flex-shrink: 0;
+
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid rgba(255,118,0,0.65);
+
+    border-radius: 5px;
+
+    color: #ff7600;
+
+    font-size: 16px;
+
+}
+
+
+.caracteristica strong {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 11px;
+
+}
+
+
+.caracteristica span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: rgba(255,255,255,0.48);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================================================
+   BOTÃO DO PROJETO
+   ========================================================= */
+
+.botao-projeto {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 225px;
+
+    height: 48px;
+
+    margin-top: 35px;
+
+    padding: 0 18px;
+
+    border: 2px solid #ff7600;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.botao-projeto span {
+
+    color: #ff7600;
+
+    font-size: 22px;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.botao-projeto:hover {
+
+    background: #ff7600;
+
+}
+
+
+.botao-projeto:hover span {
+
+    color: #ffffff;
+
+    transform: translateX(5px);
+
+}
+
+
+/* =========================================================
+   MAIS PROJETOS
+   ========================================================= */
+
+.mais-projetos {
+
+    position: relative;
+
+    padding: 65px 30px 90px;
+
+    background: #070b0f;
+
+    border-top: 1px solid rgba(255,255,255,0.05);
+
+}
+
+
+.mais-projetos-container {
+
+    width: 100%;
+
+    max-width: 1300px;
+
+    margin: auto;
+
+}
+
+
+.mais-projetos-container > span {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ff7600;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.mais-projetos-container h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 36px;
+
+}
+
+
+.mais-projetos-container p {
+
+    margin-top: 12px;
+
+    color: rgba(255,255,255,0.5);
+
+}
+
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0,0,0,0.94);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+}
+
+
+.lightbox.aberto {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.lightbox img {
+
+    max-width: 92vw;
+
+    max-height: 88vh;
+
+    object-fit: contain;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 30px 100px rgba(235, 231, 231, 0.6);
+
+}
+
+
+.fechar-lightbox {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 30px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0.5);
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+.fechar-lightbox:hover {
+
+    background: #ff7600;
+
+    border-color: #ff7600;
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .projeto-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+    }
+
+
+    .foto-principal {
+
+        height: 500px;
+
+    }
+
+
+    .projeto-informacoes {
+
+        max-width: 800px;
+
+    }
+
+}
+
+
+/* =========================================================
+   700PX
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .miniaturas {
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr));
+
+    }
+
+
+    .projetos-hero {
+
+        min-height: 240px;
+
+    }
+
+
+    .projeto-destaque {
+
+        padding: 50px 18px 70px;
+
+    }
+
+
+    .foto-principal {
+
+        height: 360px;
+
+    }
+
+
+    .miniaturas {
+
+        gap: 8px;
+
+    }
+
+
+    .miniatura {
+
+        height: 65px;
+
+    }
+
+
+    .caracteristicas {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+    }
+
+
+    .projeto-informacoes h2 {
+
+        font-size: 34px;
+
+    }
+
+
+    .mais-projetos {
+
+        padding: 50px 20px 70px;
+
+    }
+
+}
+
+
+/* =========================================================
+   480PX
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .miniaturas {
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+    }
+
+
+    .hero-conteudo h1 {
+
+        font-size: 40px;
+
+    }
+
+
+    .hero-conteudo p {
+
+        font-size: 14px;
+
+    }
+
+
+    .foto-principal {
+
+        height: 290px;
+
+    }
+
+
+    .miniatura {
+
+        height: 55px;
+
+    }
+
+
+    .seta-galeria {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .seta-galeria.esquerda {
+
+        left: 10px;
+
+    }
+
+
+    .seta-galeria.direita {
+
+        right: 10px;
+
+    }
+
+
+    .botao-projeto {
+
+        width: 100%;
+
+    }
+
+}
+
+/* =========================================================
+   CORREÇÃO - ESPAÇO ENTRE CABEÇALHO E HERO
+========================================================= */
+
+@media (min-width: 701px) {
+
+    .projetos-hero {
+        padding-top: 96px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .projetos-hero {
+        padding-top: 96px;
+    }
+
+}
+/* =========================================================
+   BOTÃO — SOLICITAR ORÇAMENTO
+========================================================= */
+
+.botao-projeto {
+    width: 280px !important;
+    height: 60px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 0 22px !important;
+
+    box-sizing: border-box !important;
+
+    border: 2px solid #ff7600 !important;
+    border-radius: 9px !important;
+
+    background: transparent !important;
+
+    color: #ffffff !important;
+
+    font-size: 17px !important;
+    font-weight: 700 !important;
+
+    text-decoration: none !important;
+
+    white-space: nowrap !important;
+
+    transition: .3s ease !important;
+}
+
+.botao-projeto span {
+    color: #ff7600 !important;
+
+    font-size: 24px !important;
+    font-weight: 400 !important;
+
+    margin-left: auto !important;
+    padding-left: 20px !important;
+
+    line-height: 1 !important;
+}
+
+.botao-projeto:hover {
+    background: #ff7600 !important;
+    color: #ffffff !important;
+}
+
+.botao-projeto:hover span {
+    color: #ffffff !important;
+}
+/* =========================================================
+   BOTÃO DO PROJETO — IGUAL AO MODELO DA METAL
+   ========================================================= */
+
+.botao-projeto {
+    position: relative !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    width: 225px !important;
+    height: 48px !important;
+
+    margin-top: 35px !important;
+    padding: 0 18px !important;
+
+    box-sizing: border-box !important;
+
+    border: 2px solid #ff7600 !important;
+    border-radius: 7px !important;
+
+    background: transparent !important;
+
+    color: #ffffff !important;
+    text-decoration: none !important;
+
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    overflow: hidden !important;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease !important;
+}
+
+/* Texto */
+.botao-projeto > span:first-child {
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Esconde a seta que está no HTML */
+.botao-projeto > span:last-child {
+    display: none !important;
+}
+
+/* Seta criada pelo CSS */
+.botao-projeto::after {
+    content: "→";
+
+    position: absolute;
+    right: 17px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #ff7600;
+
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover */
+.botao-projeto:hover {
+    background: #ff7600 !important;
+    color: #ffffff !important;
+}
+
+.botao-projeto:hover::after {
+    color: #ffffff;
+    transform: translate(5px, -50%);
+}
+
