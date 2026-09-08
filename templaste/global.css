@@ -2784,3 +2784,81 @@ body {
         background: #f5f6f8 !important;
     }
 }
+
+
+/* =========================================================
+   RODAPÉ — AJUSTE FINAL DE LEGIBILIDADE
+   Mantém o mesmo padrão em todas as páginas
+========================================================= */
+
+.rodape {
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,118,0,0.08),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #15181b,
+            #202428,
+            #121518
+        ) !important;
+}
+
+.rodape .rodape-coluna h3,
+.rodape .rodape-contato h4 {
+    color: #ffffff !important;
+}
+
+.rodape .rodape-coluna p,
+.rodape .rodape-coluna a {
+    color: #e1e5e8 !important;
+}
+
+.rodape .rodape-destaque {
+    color: #ffffff !important;
+}
+
+.rodape .rodape-coluna a:hover {
+    color: #ff7600 !important;
+}
+
+.rodape .rodape-final,
+.rodape .rodape-copy {
+    color: #aeb4b8 !important;
+}
+
+.rodape .rodape-logo img {
+    filter: brightness(0) invert(1) !important;
+    opacity: 1 !important;
+}
+
+.rodape .rodape-logo {
+    min-width: 0;
+}
+
+@media (max-width: 650px) {
+    .rodape {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+
+    .rodape-container {
+        gap: 28px !important;
+    }
+
+    .rodape .rodape-coluna p,
+    .rodape .rodape-coluna a {
+        font-size: 12px !important;
+    }
+
+    .rodape .rodape-coluna h3 {
+        font-size: 12px !important;
+    }
+
+    .rodape .rodape-logo img {
+        width: 180px !important;
+        max-width: 100% !important;
+    }
+}

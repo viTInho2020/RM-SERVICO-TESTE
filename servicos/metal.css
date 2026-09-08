@@ -97,6 +97,8 @@
     z-index: 2;
 
     text-align: center;
+
+    transform: translateY(20px);
 }
 
 
@@ -143,7 +145,7 @@
 
     color: #ece8e8;
 
-    font-size: clamp (20px, 5vw, 62px);
+    font-size: clamp(20px, 5vw, 62px);
 
     line-height: 1;
 

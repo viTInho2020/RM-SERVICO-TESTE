@@ -759,3 +759,53 @@
 .servicos-hero {
     margin-top: 96px !important;
 }
+
+/* =========================================================
+   TÍTULO — ÚLTIMOS TRABALHOS E PROJETOS
+========================================================= */
+
+.ultimos-trabalhos-titulo {
+    position: relative;
+    margin: 0 0 24px;
+    padding-left: 18px;
+    border-left: 3px solid #ff7100;
+}
+
+.ultimos-trabalhos-titulo span {
+    display: block;
+    margin-bottom: 7px;
+    color: #ff7100;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.ultimos-trabalhos-titulo h2 {
+    margin: 0;
+    color: #17263a;
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+.ultimos-trabalhos-titulo h2 strong {
+    color: #ff7100;
+    font-weight: 800;
+}
+
+@media (max-width: 700px) {
+    .ultimos-trabalhos-titulo {
+        margin-bottom: 18px;
+        padding-left: 14px;
+    }
+
+    .ultimos-trabalhos-titulo h2 {
+        font-size: 23px;
+        line-height: 1.2;
+    }
+
+    .ultimos-trabalhos-titulo span {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+}
