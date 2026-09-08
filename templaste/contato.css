@@ -1736,3 +1736,23 @@
         height: 18px;
     }
 }
+
+
+/* =========================================================
+   AJUSTE SOLICITADO — BOTÃO PADRÃO RM ENGENHARIA
+========================================================= */
+.contato-final-botao {
+    background: #ff7600 !important;
+    color: #ffffff !important;
+    padding: 16px 28px !important;
+    border: 3px solid #ffffff !important;
+    outline: 2px solid #ff7600 !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+}
+
+.contato-final-botao:hover {
+    background: #e76500 !important;
+}

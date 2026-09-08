@@ -809,3 +809,12 @@
         letter-spacing: 2px;
     }
 }
+
+
+/* =========================================================
+   AJUSTE SOLICITADO — CARDS DE SERVIÇOS SEM ÍCONES
+   Mantém toda a estrutura, tamanhos e posicionamento dos cards.
+========================================================= */
+.lista-servicos .card-icone {
+    display: none !important;
+}
