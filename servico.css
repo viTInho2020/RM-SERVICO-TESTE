@@ -59,7 +59,7 @@
     min-height: 285px;
     background:
         linear-gradient(90deg, rgba(5,16,25,.98) 0%, rgba(5,16,25,.92) 30%, rgba(5,16,25,.48) 70%, rgba(5,16,25,.25) 100%),
-        url("../imagens/banner.png") center center / cover no-repeat;
+        url("imagens/banner.png") center center / cover no-repeat;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -525,7 +525,7 @@
     padding: 30px 0;
     background:
         linear-gradient(rgba(5,16,25,.91), rgba(5,16,25,.94)),
-        url("../imagens/execucao.jpeg") center / cover no-repeat;
+        url("imagens/execucao.jpeg") center / cover no-repeat;
     border-top: 1px solid rgba(255,255,255,.16);
     overflow: hidden;
 }
@@ -855,4 +855,17 @@
     .cabecalho .menu.menu-aberto .menu-servicos .seta {
         pointer-events: none !important;
     }
+}
+
+/* CORREÇÃO FINAL — CABEÇALHO PADRÃO RM */
+.cabecalho { height:96px !important; min-height:96px !important; max-height:96px !important; box-sizing:border-box !important; }
+.cabecalho-conteudo { height:96px !important; min-height:96px !important; box-sizing:border-box !important; }
+.cabecalho .logo { display:flex !important; align-items:center !important; }
+.cabecalho .logo img { width:185px !important; max-width:185px !important; height:auto !important; display:block !important; }
+.cabecalho .menu { gap:34px !important; }
+.cabecalho .menu > a, .cabecalho .menu-dropdown > a { font-size:14px !important; }
+.cabecalho .botao-orcamento { font-size:10.5px !important; padding:14px 24px !important; }
+@media (max-width:700px) {
+  .cabecalho, .cabecalho-conteudo { height:96px !important; min-height:96px !important; max-height:96px !important; }
+  .cabecalho .logo img { width:185px !important; max-width:185px !important; }
 }

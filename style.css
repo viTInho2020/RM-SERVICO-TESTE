@@ -466,7 +466,7 @@ button {
             rgba(0, 0, 0, 0.60) 42%,
             rgba(0, 0, 0, 0.38) 100%
         ),
-        url("../imagens/banner.png");
+        url("imagens/banner.png");
 
     background-size: cover;
     background-position: center;
