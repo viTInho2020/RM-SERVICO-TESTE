@@ -1125,16 +1125,18 @@
 @media (max-width: 700px) {
 
     .cabecalho {
-        height: 80px !important;
-        min-height: 80px !important;
+        height: 96px !important;
+        min-height: 96px !important;
+        max-height: 96px !important;
     }
 
     .cabecalho-conteudo {
-        height: 80px !important;
+        height: 96px !important;
+        min-height: 96px !important;
     }
 
     .contato-page {
-        padding-top: 80px !important;
+        padding-top: 96px !important;
     }
 
     .contato-hero {
