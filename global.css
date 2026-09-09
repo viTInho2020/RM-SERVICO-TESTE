@@ -2873,3 +2873,60 @@ body {
         pointer-events: none !important;
     }
 }
+
+
+/* =========================================================
+   PADRÃO ÚNICO — CABEÇALHO RM ENGENHARIA
+   Somente dimensões visuais do cabeçalho.
+   NÃO altera links, dropdown ou lógica de toque.
+========================================================= */
+.cabecalho {
+    height: 96px !important;
+    min-height: 96px !important;
+    max-height: 96px !important;
+    box-sizing: border-box !important;
+}
+
+.cabecalho-conteudo {
+    height: 96px !important;
+    min-height: 96px !important;
+    box-sizing: border-box !important;
+}
+
+.cabecalho .logo img {
+    width: 185px !important;
+    max-width: 185px !important;
+    height: auto !important;
+}
+
+.cabecalho .menu {
+    gap: 34px !important;
+}
+
+.cabecalho .menu > a,
+.cabecalho .menu-dropdown > a {
+    font-size: 14px !important;
+}
+
+.cabecalho .botao-orcamento {
+    font-size: 10.5px !important;
+    padding: 14px 24px !important;
+}
+
+@media (max-width: 700px) {
+    .cabecalho {
+        height: 96px !important;
+        min-height: 96px !important;
+        max-height: 96px !important;
+    }
+
+    .cabecalho-conteudo {
+        height: 96px !important;
+        min-height: 96px !important;
+    }
+
+    .cabecalho .logo img {
+        width: 185px !important;
+        max-width: 185px !important;
+    }
+}
