@@ -14,7 +14,7 @@
             padding: 90px 20px 80px;
             background:
                 linear-gradient(135deg, rgba(16, 31, 48, .98), rgba(23, 38, 58, .94)),
-                url("../imagens/civil-banner-rm-engenharia-sjc.png") center/cover;
+                url("imagens/civil-banner-rm-engenharia-sjc.png") center/cover;
         }
 
         .contato-hero::after {
