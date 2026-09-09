@@ -9508,3 +9508,13 @@ line-height: 1.7;
         bottom: -170px;
     }
 }
+/* =========================================================
+   CORREÇÃO FINAL — TOQUE DO MENU MOBILE
+   Somente o link controla a navegação; a seta é visual.
+   Não altera dimensões, cores ou posicionamento.
+   ========================================================= */
+@media (max-width: 700px) {
+    .cabecalho .menu.menu-aberto .menu-servicos .seta {
+        pointer-events: none !important;
+    }
+}

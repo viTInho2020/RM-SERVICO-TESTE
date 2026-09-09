@@ -9702,3 +9702,36 @@ line-height: 1.7;
         background: #f5f6f8 !important;
     }
 }
+
+
+/* Legenda da imagem — marca com leitura clara */
+.imagem-legenda > div strong {
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+    .imagem-legenda {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+        max-width: calc(100% - 24px);
+        padding: 10px 14px;
+    }
+
+    .imagem-legenda > div strong {
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   CORREÇÃO FINAL — TOQUE DO MENU MOBILE
+   Somente o link controla a navegação; a seta é visual.
+   Não altera dimensões, cores ou posicionamento.
+   ========================================================= */
+@media (max-width: 700px) {
+    .cabecalho .menu.menu-aberto .menu-servicos .seta {
+        pointer-events: none !important;
+    }
+}
