@@ -1117,8 +1117,9 @@
 <script>
 /* =========================================================
    MENU GLOBAL — MOBILE ANDROID / IOS
-   Controle de toque compatível com Safari iOS e Android.
-   Não altera o visual nem a navegação dos demais links.
+   Controle de toque robusto para Safari/iOS e Android.
+   O link continua navegando normalmente; somente a área
+   ao redor da seta abre/fecha o submenu.
    ========================================================= */
 (function () {
     function iniciarMenuGlobal() {
@@ -1129,10 +1130,7 @@
 
         if (!menu || !botaoMenu || !servicos || !seta) return;
 
-        /* A seta é apenas o indicador visual.
-           O toque é tratado pelo próprio link para evitar
-           o comportamento inconsistente de elementos interativos
-           aninhados no Safari/iOS. */
+        /* A seta continua sendo apenas visual. */
         seta.setAttribute("role", "presentation");
         seta.setAttribute("tabindex", "-1");
         seta.setAttribute("aria-hidden", "true");
@@ -1146,12 +1144,8 @@
                 event.stopPropagation();
 
                 const aberto = menu.classList.toggle("menu-aberto");
-
                 botaoMenu.classList.toggle("ativo", aberto);
-                botaoMenu.setAttribute(
-                    "aria-label",
-                    aberto ? "Fechar menu" : "Abrir menu"
-                );
+                botaoMenu.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
 
                 if (!botaoMenu.children.length) {
                     botaoMenu.textContent = aberto ? "✕" : "☰";
@@ -1167,46 +1161,79 @@
         if (!servicos.dataset.servicosGlobalConfigurado) {
             servicos.dataset.servicosGlobalConfigurado = "true";
 
-            function toqueFoiNaSeta(event) {
-                const rect = seta.getBoundingClientRect();
+            let toqueNaSeta = false;
+            let ultimoToqueSeta = 0;
 
+            function pontoNaAreaDaSeta(clientX, clientY) {
+                const rect = seta.getBoundingClientRect();
                 if (!rect.width || !rect.height) return false;
 
-                const x = event.clientX;
-                const y = event.clientY;
-
+                /* Área de toque ampliada, sem alterar o desenho da seta.
+                   24px em cada lado deixa o toque confiável no Android/iOS. */
+                const margem = 24;
                 return (
-                    x >= rect.left &&
-                    x <= rect.right &&
-                    y >= rect.top &&
-                    y <= rect.bottom
+                    clientX >= rect.left - margem &&
+                    clientX <= rect.right + margem &&
+                    clientY >= rect.top - margem &&
+                    clientY <= rect.bottom + margem
                 );
             }
 
             function alternarServicos(event) {
-                /* Só intercepta o toque na seta.
-                   O texto "Serviços" continua sendo um link normal. */
-                if (!toqueFoiNaSeta(event)) return;
+                if (!pontoNaAreaDaSeta(event.clientX, event.clientY)) return false;
 
                 event.preventDefault();
                 event.stopPropagation();
 
                 const scrollTop = window.scrollY;
                 const aberto = !servicos.classList.contains("aberto");
-
                 servicos.classList.toggle("aberto", aberto);
                 servicos.setAttribute("aria-expanded", String(aberto));
 
-                /* Preserva a posição no Safari/iOS. */
                 requestAnimationFrame(function () {
                     window.scrollTo(0, scrollTop);
                 });
+
+                return true;
             }
 
-            /* click é usado como evento principal de toque.
-               Isso evita a disputa pointerdown/click que podia
-               deixar o Safari navegar para o href do link. */
-            servicos.addEventListener("click", alternarServicos);
+            /* No toque, tratamos a seta antes do click sintético do navegador. */
+            servicos.addEventListener("touchend", function (event) {
+                if (event.changedTouches.length !== 1) return;
+
+                const toque = event.changedTouches[0];
+                if (!pontoNaAreaDaSeta(toque.clientX, toque.clientY)) {
+                    toqueNaSeta = false;
+                    return;
+                }
+
+                toqueNaSeta = true;
+                ultimoToqueSeta = Date.now();
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                const scrollTop = window.scrollY;
+                const aberto = !servicos.classList.contains("aberto");
+                servicos.classList.toggle("aberto", aberto);
+                servicos.setAttribute("aria-expanded", String(aberto));
+
+                requestAnimationFrame(function () {
+                    window.scrollTo(0, scrollTop);
+                });
+            }, { passive: false });
+
+            /* Fallback para navegadores que entregam apenas click em toque. */
+            servicos.addEventListener("click", function (event) {
+                if (toqueNaSeta && Date.now() - ultimoToqueSeta < 700) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    toqueNaSeta = false;
+                    return;
+                }
+
+                alternarServicos(event);
+            });
         }
 
         if (!servicos.classList.contains("aberto")) {
