@@ -14,7 +14,7 @@
             padding: 90px 20px 80px;
             background:
                 linear-gradient(135deg, rgba(16, 31, 48, .98), rgba(23, 38, 58, .94)),
-                url("imagens/civil-banner-rm-engenharia-sjc.png") center/cover;
+                url("../imagens/civil-banner-rm-engenharia-sjc.png") center/cover;
         }
 
         .contato-hero::after {
@@ -1125,18 +1125,16 @@
 @media (max-width: 700px) {
 
     .cabecalho {
-        height: 96px !important;
-        min-height: 96px !important;
-        max-height: 96px !important;
+        height: 80px !important;
+        min-height: 80px !important;
     }
 
     .cabecalho-conteudo {
-        height: 96px !important;
-        min-height: 96px !important;
+        height: 80px !important;
     }
 
     .contato-page {
-        padding-top: 96px !important;
+        padding-top: 80px !important;
     }
 
     .contato-hero {
@@ -1908,5 +1906,75 @@
 
     .contato-formulario-topo p {
         font-size: 9px !important;
+    }
+}
+
+
+/* =========================================================
+   CABEÇALHO CONTATO — MESMO PADRÃO DAS OUTRAS PÁGINAS
+   Correção final: não altera menu, dropdown ou conteúdo.
+========================================================= */
+.contato-page .cabecalho,
+.cabecalho {
+    height: 96px !important;
+    min-height: 96px !important;
+    max-height: 96px !important;
+    box-sizing: border-box !important;
+}
+
+.contato-page .cabecalho-conteudo,
+.cabecalho-conteudo {
+    height: 96px !important;
+    min-height: 96px !important;
+    box-sizing: border-box !important;
+}
+
+.contato-page .cabecalho .logo img,
+.cabecalho .logo img {
+    width: 185px !important;
+    max-width: 185px !important;
+    height: auto !important;
+}
+
+.contato-page .cabecalho .menu,
+.cabecalho .menu {
+    gap: 34px !important;
+}
+
+.contato-page .cabecalho .menu > a,
+.contato-page .cabecalho .menu-dropdown > a,
+.cabecalho .menu > a,
+.cabecalho .menu-dropdown > a {
+    font-size: 14px !important;
+}
+
+.contato-page .cabecalho .botao-orcamento,
+.cabecalho .botao-orcamento {
+    font-size: 10.5px !important;
+    padding: 14px 24px !important;
+}
+
+@media (max-width: 700px) {
+    .contato-page .cabecalho,
+    .cabecalho {
+        height: 96px !important;
+        min-height: 96px !important;
+        max-height: 96px !important;
+    }
+
+    .contato-page .cabecalho-conteudo,
+    .cabecalho-conteudo {
+        height: 96px !important;
+        min-height: 96px !important;
+    }
+
+    .contato-page .cabecalho .logo img,
+    .cabecalho .logo img {
+        width: 185px !important;
+        max-width: 185px !important;
+    }
+
+    .contato-page {
+        padding-top: 96px !important;
     }
 }
