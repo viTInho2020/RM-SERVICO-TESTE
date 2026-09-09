@@ -1767,4 +1767,144 @@
         pointer-events: none !important;
     }
 }
-\n\n/* =========================================================\n   RESPONSIVIDADE FINAL — BLOCO DE CONTATO\n   Ajusta o conteúdo para telas estreitas sem alterar\n   menu, dropdown ou lógica de toque.\n========================================================= */\n\n.contato-principal,\n.contato-intro,\n.contato-formulario {\n    box-sizing: border-box !important;\n    min-width: 0 !important;\n}\n\n.contato-intro h2,\n.contato-intro > p,\n.contato-detalhe,\n.contato-formulario,\n.contato-formulario-topo,\n.contato-canal,\n.contato-resposta {\n    max-width: 100% !important;\n    overflow-wrap: anywhere !important;\n    word-break: normal !important;\n}\n\n@media (max-width: 900px) {\n    .contato-principal {\n        width: 100% !important;\n        max-width: 100% !important;\n        margin-left: 0 !important;\n        margin-right: 0 !important;\n        padding-left: clamp(20px, 5vw, 35px) !important;\n        padding-right: clamp(20px, 5vw, 35px) !important;\n    }\n\n    .contato-intro {\n        width: 100% !important;\n        max-width: 100% !important;\n        padding-right: 0 !important;\n    }\n\n    .contato-intro h2 {\n        width: 100% !important;\n        max-width: 100% !important;\n        font-size: clamp(34px, 7vw, 48px) !important;\n        line-height: 1.08 !important;\n    }\n\n    .contato-intro > p,\n    .contato-detalhe {\n        width: 100% !important;\n        max-width: 100% !important;\n    }\n\n    .contato-formulario {\n        width: 100% !important;\n        max-width: 100% !important;\n        margin-left: 0 !important;\n        margin-right: 0 !important;\n        padding-left: clamp(32px, 7vw, 50px) !important;\n        padding-right: clamp(20px, 5vw, 40px) !important;\n    }\n}\n\n@media (max-width: 480px) {\n    .contato-principal {\n        padding: 40px 18px 45px !important;\n    }\n\n    .contato-intro h2 {\n        font-size: clamp(30px, 9vw, 38px) !important;\n        letter-spacing: -.7px !important;\n        padding-left: 13px !important;\n    }\n\n    .contato-intro > p {\n        font-size: 12px !important;\n    }\n\n    .contato-formulario {\n        padding: 28px 20px 28px 38px !important;\n    }\n\n    .contato-formulario-topo h3 {\n        font-size: clamp(20px, 6vw, 24px) !important;\n    }\n\n    .contato-canal {\n        min-width: 0 !important;\n    }\n\n    .contato-canal > *:last-child {\n        min-width: 0 !important;\n    }\n}\n
+
+/* =========================================================
+   CORREÇÃO DEFINITIVA — CONTATO RESPONSIVO
+   Ajuste somente do bloco principal para telas estreitas.
+   Não altera menu, dropdown ou navegação.
+========================================================= */
+
+.contato-principal > * {
+    min-width: 0 !important;
+}
+
+.contato-intro,
+.contato-formulario,
+.contato-formulario-topo,
+.contato-canal,
+.contato-resposta {
+    min-width: 0 !important;
+    max-width: 100% !important;
+}
+
+.contato-intro h2,
+.contato-intro > p,
+.contato-detalhe,
+.contato-detalhe > div,
+.contato-formulario-topo h3,
+.contato-formulario-topo p,
+.contato-canal > span:last-child,
+.contato-canal strong,
+.contato-canal em,
+.contato-resposta p {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+}
+
+@media (max-width: 700px) {
+    .contato-principal {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        min-height: auto !important;
+        padding: 45px 20px 50px !important;
+        gap: 35px !important;
+    }
+
+    .contato-intro {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .contato-intro h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: clamp(28px, 9vw, 34px) !important;
+        line-height: 1.08 !important;
+        padding-left: 13px !important;
+    }
+
+    .contato-intro > p,
+    .contato-detalhe {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .contato-formulario {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 30px 20px 30px 42px !important;
+        clip-path: polygon(
+            10% 0,
+            100% 0,
+            100% 100%,
+            10% 100%,
+            0 92%,
+            0 8%
+        ) !important;
+    }
+
+    .contato-formulario-topo {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+    }
+
+    .contato-formulario-topo h3 {
+        font-size: clamp(20px, 6vw, 24px) !important;
+    }
+
+    .contato-formulario-topo p {
+        font-size: 10px !important;
+    }
+
+    .contato-canal {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 0 !important;
+    }
+
+    .contato-canal > span:last-child {
+        flex: 1 1 auto !important;
+        width: 0 !important;
+    }
+
+    .contato-canal strong {
+        font-size: 11px !important;
+    }
+
+    .contato-canal em {
+        font-size: 8px !important;
+    }
+
+    .contato-resposta {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .contato-principal {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .contato-formulario {
+        padding-left: 36px !important;
+        padding-right: 15px !important;
+    }
+
+    .contato-formulario-topo h3 {
+        font-size: 19px !important;
+    }
+
+    .contato-formulario-topo p {
+        font-size: 9px !important;
+    }
+}
