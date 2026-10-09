@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Detalhes da Obra | RM ENGENHARIA</title>
+  <meta name="description" content="Conheça os detalhes dos projetos e obras realizados pela RM ENGENHARIA.">
+
+  <style>
+    :root {
+      --azul: #17263a;
+      --azul-claro: #233b57;
+      --laranja: #ff7600;
+      --branco: #ffffff;
+      --fundo: #f4f6f8;
+      --texto: #293443;
+      --cinza: #6c7785;
+      --borda: #e2e7ed;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fundo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .cabecalho {
+      background: var(--branco);
+      border-bottom: 3px solid var(--laranja);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .cabecalho-conteudo {
+      max-width: 1180px;
+      min-height: 88px;
+      margin: auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .marca {
+      color: var(--azul);
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .marca span {
+      display: block;
+      color: var(--laranja);
+      font-size: 12px;
+      letter-spacing: 4px;
+      margin-top: 5px;
+    }
+
+    .botao {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      border-radius: 5px;
+      padding: 13px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .botao-voltar {
+      background: var(--azul);
+      color: var(--branco);
+    }
+
+    .botao-voltar:hover {
+      background: var(--azul-claro);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      background:
+        linear-gradient(110deg, rgba(23, 38, 58, 0.97), rgba(23, 38, 58, 0.84)),
+        var(--azul);
+      color: var(--branco);
+      padding: 65px 24px 75px;
+      border-bottom: 5px solid var(--laranja);
+    }
+
+    .hero-conteudo {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      color: #ffad68;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+      overflow-wrap: anywhere;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #dce4ed;
+      font-size: 16px;
+    }
+
+    .pagina {
+      max-width: 1180px;
+      margin: -25px auto 0;
+      padding: 0 24px 60px;
+      position: relative;
+    }
+
+    .informacoes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      box-shadow: 0 10px 35px rgba(23, 38, 58, 0.07);
+      margin-bottom: 38px;
+      overflow: hidden;
+    }
+
+    .info {
+      padding: 23px 25px;
+      min-width: 0;
+    }
+
+    .info + .info {
+      border-left: 1px solid var(--borda);
+    }
+
+    .info small {
+      display: block;
+      color: var(--cinza);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .info strong {
+      color: var(--azul);
+      font-size: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .secao {
+      margin-bottom: 42px;
+    }
+
+    .titulo-secao {
+      margin-bottom: 20px;
+    }
+
+    .titulo-secao span {
+      display: block;
+      color: var(--laranja);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .titulo-secao h2 {
+      color: var(--azul);
+      font-size: clamp(23px, 3vw, 30px);
+      line-height: 1.25;
+    }
+
+    .descricao-card {
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      padding: 28px;
+    }
+
+    .descricao-card p {
+      color: #4d5967;
+      font-size: 16px;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .foto {
+      display: block;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background: #e4e9ef;
+      border-radius: 8px;
+      cursor: zoom-in;
+      transition: transform 0.25s ease;
+    }
+
+    .foto:hover {
+      transform: translateY(-3px);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .video-card {
+      background: var(--branco);
+      padding: 10px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+    }
+
+    .video-card video {
+      display: block;
+      width: 100%;
+      max-height: 380px;
+      background: #101820;
+      border-radius: 5px;
+    }
+
+    .vazio {
+      background: var(--branco);
+      color: var(--cinza);
+      border: 1px dashed #cbd3dc;
+      border-radius: 8px;
+      padding: 28px;
+      text-align: center;
+      grid-column: 1 / -1;
+    }
+
+    .carregando {
+      max-width: 700px;
+      margin: 70px auto;
+      padding: 30px 24px;
+      text-align: center;
+      color: var(--cinza);
+    }
+
+    .carregando h2 {
+      color: var(--azul);
+      margin-bottom: 10px;
+    }
+
+    .erro {
+      color: #a32626;
+      background: #fff0f0;
+      border: 1px solid #f2c5c5;
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .contato {
+      background: var(--azul);
+      color: var(--branco);
+      padding: 35px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .contato h2 {
+      font-size: clamp(22px, 3vw, 29px);
+      margin-bottom: 8px;
+    }
+
+    .contato p {
+      color: #dce4ed;
+      max-width: 600px;
+    }
+
+    .botao-contato {
+      background: var(--laranja);
+      color: var(--branco);
+      flex-shrink: 0;
+    }
+
+    .botao-contato:hover {
+      background: #e86800;
+    }
+
+    footer {
+      background: #101c2b;
+      color: #cbd3dc;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .rodape-marca {
+      color: var(--branco);
+      font-weight: 800;
+    }
+
+    .rodape-marca span {
+      color: var(--laranja);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      padding: 25px;
+      background: rgba(7, 13, 22, 0.94);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.aberto {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+
+    .fechar-lightbox {
+      position: absolute;
+      top: 15px;
+      right: 22px;
+      background: transparent;
+      border: 0;
+      color: white;
+      font-size: 36px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 760px) {
+      .cabecalho-conteudo {
+        padding: 14px 16px;
+        min-height: 75px;
+      }
+
+      .marca {
+        font-size: 19px;
+      }
+
+      .botao {
+        padding: 11px 13px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 48px 18px 58px;
+      }
+
+      .pagina {
+        padding: 0 16px 40px;
+      }
+
+      .informacoes {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        padding: 17px 20px;
+      }
+
+      .info + .info {
+        border-left: none;
+        border-top: 1px solid var(--borda);
+      }
+
+      .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .foto {
+        height: 180px;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .descricao-card {
+        padding: 20px;
+      }
+
+      .contato {
+        padding: 25px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cabecalho-conteudo {
+        gap: 10px;
+      }
+
+      .marca {
+        font-size: 16px;
+      }
+
+      .marca span {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .galeria {
+        grid-template-columns: 1fr;
+      }
+
+      .foto {
+        height: 230px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="cabecalho-conteudo">
+      <a class="marca" href="index.html">
+        RM ENGENHARIA
+        <span>PROJETOS E EXECUÇÃO</span>
+      </a>
+
+      <a class="botao botao-voltar" href="index.html">
+        ← Voltar ao site
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-conteudo">
+      <span class="etiqueta">Portfólio de obras</span>
+      <h1 id="nomeObra">Carregando detalhes da obra...</h1>
+      <p id="resumoObra">
+        Conheça o projeto, suas características e as etapas de execução.
+      </p>
+    </div>
+  </section>
+
+  <main class="pagina" id="conteudoPrincipal">
+    <div class="carregando">
+      <h2>Preparando os detalhes</h2>
+      <p>Aguarde enquanto carregamos as informações da obra.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      © <span id="anoAtual"></span>
+      <span class="rodape-marca">RM <span>ENGENHARIA</span></span>.
+      Todos os direitos reservados.
+    </p>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto">
+    <button class="fechar-lightbox" id="fecharLightbox" aria-label="Fechar imagem">×</button>
+    <img id="imagemAmpliada" src="" alt="Foto ampliada da obra">
+  </div>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const SUPABASE_URL =
+        'https://cyqyditgqbauqknfnkvh.supabase.co';
+
+      const SUPABASE_PUBLISHABLE_KEY =
+        'sb_publishable_F3lTrBC5pqonAzI4V6zxQQ_VhJNf_LF';
+
+      const BUCKET = 'servicos-rm';
+
+      const supabase = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+      const $ = (seletor) => document.querySelector(seletor);
+
+      const escapar = (valor) => String(valor ?? '').replace(
+        /[&<>"']/g,
+        caractere => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[caractere]
+      );
+
+      function converterLista(valor) {
+        if (Array.isArray(valor)) return valor;
+
+        if (typeof valor === 'string' && valor.trim()) {
+          try {
+            const convertido = JSON.parse(valor);
+            if (Array.isArray(convertido)) return convertido;
+            if (typeof convertido === 'string') return [convertido];
+          } catch {
+            return valor.split(/\r?\n|,/).map(item => item.trim()).filter(Boolean);
+          }
+        }
+
+        return [];
+      }
+
+      function normalizarArquivo(item) {
+        if (typeof item === 'string') return item;
+
+        if (item && typeof item === 'object') {
+          return item.url || item.path || item.name || item.src || '';
+        }
+
+        return '';
+      }
+
+      async function obterUrl(item) {
+        const arquivo = normalizarArquivo(item);
+        if (!arquivo) return '';
+
+        if (/^https?:\/\//i.test(arquivo)) {
+          return arquivo;
+        }
+
+        const caminho = arquivo.replace(/^\/+/, '').replace(/^servicos-rm\//, '');
+
+        const { data: publico } = supabase.storage
+          .from(BUCKET)
+          .getPublicUrl(caminho);
+
+        // Tenta URL pública primeiro.
+        if (publico?.publicUrl) {
+          try {
+            const teste = await fetch(publico.publicUrl, { method: 'HEAD' });
+            if (teste.ok) return publico.publicUrl;
+          } catch {}
+        }
+
+        // Para bucket privado, tenta gerar URL temporária.
+        const { data, error } = await supabase.storage
+          .from(BUCKET)
+          .createSignedUrl(caminho, 3600);
+
+        if (!error && data?.signedUrl) {
+          return data.signedUrl;
+        }
+
+        return '';
+      }
+
+      function exibirVazio(mensagem) {
+        return `<div class="vazio">${escapar(mensagem)}</div>`;
+      }
+
+      async function carregarObra() {
+        const id = new URLSearchParams(window.location.search).get('id');
+
+        if (!id) {
+          $('#nomeObra').textContent = 'Obra não identificada';
+          $('#resumoObra').textContent =
+            'Selecione uma obra no portfólio para consultar seus detalhes.';
+
+          $('#conteudoPrincipal').innerHTML = `
+            <div class="erro">
+              Não encontramos o ID da obra no endereço.
+              Volte ao portfólio e abra a obra desejada novamente.
+            </div>`;
+          return;
+        }
+
+        const { data: obra, error } = await supabase
+          .from('servicos')
+          .select('id,nome,descricao,categoria,local,fotos,videos,publicado')
+          .eq('id', id)
+          .eq('publicado', true)
+          .single();
+
+        if (error || !obra) {
+          console.error('Erro ao carregar obra:', error);
+
+          $('#nomeObra').textContent = 'Não foi possível carregar a obra';
+          $('#resumoObra').textContent =
+            'Confira se a obra está publicada e se as permissões do Supabase permitem a leitura.';
+
+          $('#conteudoPrincipal').innerHTML = `
+            <div class="erro">
+              A obra não foi encontrada ou não está disponível publicamente.
+              Verifique o ID do link, a publicação do serviço e as políticas de leitura do Supabase.
+            </div>`;
+          return;
+        }
+
+        $('#nomeObra').textContent = obra.nome || 'Obra da RM ENGENHARIA';
+        $('#resumoObra').textContent =
+          obra.categoria || 'Projeto executado pela RM ENGENHARIA';
+
+        const fotos = converterLista(obra.fotos);
+        const videos = converterLista(obra.videos);
+
+        const fotosHtml = await Promise.all(
+          fotos.map(async (foto) => {
+            const url = await obterUrl(foto);
+            if (!url) return '';
+
+            return `
+              <img
+                class="foto"
+                src="${escapar(url)}"
+                alt="Fotografia da obra ${escapar(obra.nome)}"
+                loading="lazy"
+                data-ampliar="${escapar(url)}"
+              >`;
+          })
+        );
+
+        const videosHtml = await Promise.all(
+          videos.map(async (video) => {
+            const url = await obterUrl(video);
+            if (!url) return '';
+
+            return `
+              <div class="video-card">
+                <video controls preload="metadata">
+                  <source src="${escapar(url)}">
+                  Seu navegador não consegue reproduzir este vídeo.
+                </video>
+              </div>`;
+          })
+        );
+
+        $('#conteudoPrincipal').innerHTML = `
+          <section class="informacoes" aria-label="Informações da obra">
+            <div class="info">
+              <small>Categoria</small>
+              <strong>${escapar(obra.categoria || 'Não informada')}</strong>
+            </div>
+
+            <div class="info">
+              <small>Localização</small>
+              <strong>${escapar(obra.local || 'Não informada')}</strong>
+            </div>
+
+            <div class="info">
+              <small>Empresa responsável</small>
+              <strong>RM ENGENHARIA</strong>
+            </div>
+          </section>
+
+          <section class="secao">
+            <div class="titulo-secao">
+              <span>Sobre o projeto</span>
+              <h2>Detalhes da obra</h2>
+            </div>
+
+            <div class="descricao-card">
+              <p>${escapar(obra.descricao || 'Nenhuma descrição foi cadastrada para esta obra.')}</p>
+            </div>
+          </section>
+
+          <section class="secao">
+            <div class="titulo-secao">
+              <span>Registro fotográfico</span>
+              <h2>Galeria de imagens</h2>
+            </div>
+
+            <div class="galeria">
+              ${
+                fotosHtml.filter(Boolean).join('') ||
+                exibirVazio('Nenhuma fotografia disponível para esta obra.')
+              }
+            </div>
+          </section>
+
+          <section class="secao">
+            <div class="titulo-secao">
+              <span>Execução do projeto</span>
+              <h2>Vídeos da obra</h2>
+            </div>
+
+            <div class="video-grid">
+              ${
+                videosHtml.filter(Boolean).join('') ||
+                exibirVazio('Nenhum vídeo disponível para esta obra.')
+              }
+            </div>
+          </section>
+
+          <section class="contato">
+            <div>
+              <h2>Precisa de um projeto de engenharia?</h2>
+              <p>
+                Entre em contato com a RM ENGENHARIA para conversar
+                sobre sua necessidade e conhecer nossas soluções.
+              </p>
+            </div>
+
+            <a
+              class="botao botao-contato"
+              href="contato.html"
+            >
+              Falar com a RM ENGENHARIA →
+            </a>
+          </section>
+        `;
+      }
+
+      $('#conteudoPrincipal').addEventListener('click', (evento) => {
+        const foto = evento.target.closest('[data-ampliar]');
+        if (!foto) return;
+
+        $('#imagemAmpliada').src = foto.dataset.ampliar;
+        $('#lightbox').classList.add('aberto');
+      });
+
+      function fecharLightbox() {
+        $('#lightbox').classList.remove('aberto');
+        $('#imagemAmpliada').src = '';
+      }
+
+      $('#fecharLightbox').addEventListener('click', fecharLightbox);
+
+      $('#lightbox').addEventListener('click', (evento) => {
+        if (evento.target.id === 'lightbox') fecharLightbox();
+      });
+
+      document.addEventListener('keydown', (evento) => {
+        if (evento.key === 'Escape') fecharLightbox();
+      });
+
+      $('#anoAtual').textContent = new Date().getFullYear();
+
+      carregarObra().catch((erro) => {
+        console.error(erro);
+        $('#nomeObra').textContent = 'Erro ao carregar a obra';
+        $('#conteudoPrincipal').innerHTML = `
+          <div class="erro">
+            Ocorreu um erro inesperado ao carregar os detalhes.
+            Abra o Console do navegador para verificar a causa.
+          </div>`;
+      });
+    })();
+  </script>
+</body>
+</html>
