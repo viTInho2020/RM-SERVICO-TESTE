@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,234 +9,250 @@
   <title>Detalhes da Obra | RM ENGENHARIA</title>
   <meta name="description" content="Conheça os detalhes dos projetos e obras realizados pela RM ENGENHARIA.">
 
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" type="image/png" sizes="64x64" href="imagens/favicon-rm.png">
+
   <style>
+    /* =====================================================
+       DETALHES DA OBRA — RM ENGENHARIA
+       Identidade visual baseada na página Galpões
+       ===================================================== */
+
     :root {
-      --azul: #17263a;
-      --azul-claro: #233b57;
-      --laranja: #ff7600;
-      --branco: #ffffff;
-      --fundo: #f4f6f8;
-      --texto: #293443;
-      --cinza: #6c7785;
-      --borda: #e2e7ed;
+      --obra-laranja: #ff7600;
+      --obra-fundo: #080d12;
+      --obra-fundo-2: #070b0f;
+      --obra-card: #101820;
+      --obra-branco: #ffffff;
+      --obra-cinza: rgba(255, 255, 255, .65);
+      --obra-borda: rgba(255, 255, 255, .09);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
+    .pagina-obra,
+    .pagina-obra * {
       box-sizing: border-box;
     }
 
-    body {
+    .pagina-obra {
+      background: var(--obra-fundo);
+      color: var(--obra-branco);
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--fundo);
-      color: var(--texto);
       line-height: 1.6;
+      min-height: 60vh;
     }
 
-    a {
-      color: inherit;
+    .pagina-obra a {
       text-decoration: none;
     }
 
-    .cabecalho {
-      background: var(--branco);
-      border-bottom: 3px solid var(--laranja);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+    /* HERO */
 
-    .cabecalho-conteudo {
-      max-width: 1180px;
-      min-height: 88px;
-      margin: auto;
-      padding: 16px 24px;
+    .obra-hero {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .marca {
-      color: var(--azul);
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      line-height: 1.2;
-    }
-
-    .marca span {
-      display: block;
-      color: var(--laranja);
-      font-size: 12px;
-      letter-spacing: 4px;
-      margin-top: 5px;
-    }
-
-    .botao {
-      display: inline-flex;
       justify-content: center;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      border-radius: 5px;
-      padding: 13px 20px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .botao-voltar {
-      background: var(--azul);
-      color: var(--branco);
-    }
-
-    .botao-voltar:hover {
-      background: var(--azul-claro);
-      transform: translateY(-1px);
-    }
-
-    .hero {
+      min-height: 300px;
+      padding: 75px 24px 55px;
+      overflow: hidden;
+      text-align: center;
       background:
-        linear-gradient(110deg, rgba(23, 38, 58, 0.97), rgba(23, 38, 58, 0.84)),
-        var(--azul);
-      color: var(--branco);
-      padding: 65px 24px 75px;
-      border-bottom: 5px solid var(--laranja);
+        radial-gradient(
+          circle at 10% 30%,
+          rgba(255, 118, 0, .14),
+          transparent 35%
+        ),
+        linear-gradient(135deg, #070b0f, #0c1117);
+      border-bottom: 1px solid rgba(255, 118, 0, .2);
     }
 
-    .hero-conteudo {
-      max-width: 1180px;
+    .obra-hero::before,
+    .obra-hero::after {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border: 1px solid rgba(255, 118, 0, .07);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .obra-hero::before {
+      top: -450px;
+      left: -150px;
+    }
+
+    .obra-hero::after {
+      right: -200px;
+      bottom: -500px;
+    }
+
+    .obra-hero-conteudo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1050px;
       margin: auto;
     }
 
-    .etiqueta {
-      display: inline-block;
-      color: #ffad68;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
+    .obra-hero-linha {
+      display: block;
+      width: 44px;
+      height: 3px;
+      margin: 0 auto 17px;
+      background: var(--obra-laranja);
+      box-shadow: 0 0 14px rgba(255, 118, 0, .45);
     }
 
-    .hero h1 {
-      max-width: 850px;
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.15;
-      margin-bottom: 18px;
+    .obra-etiqueta {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--obra-laranja);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .obra-hero h1 {
+      max-width: 950px;
+      margin: 0 auto;
+      color: #fff;
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -1px;
       overflow-wrap: anywhere;
     }
 
-    .hero p {
-      max-width: 700px;
-      color: #dce4ed;
+    .obra-hero p {
+      max-width: 720px;
+      margin: 16px auto 0;
+      color: rgba(255, 255, 255, .68);
       font-size: 16px;
+      overflow-wrap: anywhere;
     }
 
-    .pagina {
-      max-width: 1180px;
-      margin: -25px auto 0;
-      padding: 0 24px 60px;
+    /* CONTEÚDO */
+
+    .obra-conteudo {
       position: relative;
+      max-width: 1300px;
+      width: 100%;
+      margin: auto;
+      padding: 55px 30px 85px;
     }
+
+    .obra-secao {
+      margin-bottom: 48px;
+      min-width: 0;
+    }
+
+    .obra-titulo-secao {
+      margin-bottom: 22px;
+    }
+
+    .obra-titulo-secao > span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--obra-laranja);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .obra-titulo-secao h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 800;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    /* INFORMAÇÕES */
 
     .informacoes {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      background: var(--branco);
-      border: 1px solid var(--borda);
-      border-radius: 10px;
-      box-shadow: 0 10px 35px rgba(23, 38, 58, 0.07);
-      margin-bottom: 38px;
+      margin-bottom: 48px;
       overflow: hidden;
+      background: linear-gradient(135deg, #111a23, #0d141b);
+      border: 1px solid var(--obra-borda);
+      border-radius: 9px;
     }
 
     .info {
-      padding: 23px 25px;
       min-width: 0;
+      padding: 23px 25px;
     }
 
     .info + .info {
-      border-left: 1px solid var(--borda);
+      border-left: 1px solid var(--obra-borda);
     }
 
     .info small {
       display: block;
-      color: var(--cinza);
-      text-transform: uppercase;
+      margin-bottom: 7px;
+      color: var(--obra-laranja);
+      font-size: 10px;
       font-weight: 700;
-      font-size: 11px;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .info strong {
-      color: var(--azul);
+      display: block;
+      color: #fff;
       font-size: 15px;
       overflow-wrap: anywhere;
     }
 
-    .secao {
-      margin-bottom: 42px;
-    }
-
-    .titulo-secao {
-      margin-bottom: 20px;
-    }
-
-    .titulo-secao span {
-      display: block;
-      color: var(--laranja);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-
-    .titulo-secao h2 {
-      color: var(--azul);
-      font-size: clamp(23px, 3vw, 30px);
-      line-height: 1.25;
-    }
+    /* DESCRIÇÃO */
 
     .descricao-card {
-      background: var(--branco);
-      border: 1px solid var(--borda);
+      padding: 30px;
+      background: linear-gradient(135deg, #111a23, #0d141b);
+      border: 1px solid var(--obra-borda);
       border-radius: 9px;
-      padding: 28px;
     }
 
     .descricao-card p {
-      color: #4d5967;
+      color: rgba(255, 255, 255, .7);
       font-size: 16px;
+      line-height: 1.9;
       white-space: pre-line;
       overflow-wrap: anywhere;
     }
 
+    /* GALERIA */
+
     .galeria {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 17px;
     }
 
     .foto {
       display: block;
       width: 100%;
-      height: 250px;
+      height: 260px;
       object-fit: cover;
-      background: #e4e9ef;
+      background: #111820;
+      border: 1px solid var(--obra-borda);
       border-radius: 8px;
       cursor: zoom-in;
-      transition: transform 0.25s ease;
+      transition: transform .3s ease, border-color .3s ease;
     }
 
     .foto:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
+      border-color: rgba(255, 118, 0, .7);
     }
+
+    /* VÍDEOS */
 
     .video-grid {
       display: grid;
@@ -244,109 +261,134 @@
     }
 
     .video-card {
-      background: var(--branco);
+      min-width: 0;
       padding: 10px;
-      border: 1px solid var(--borda);
+      background: #111a23;
+      border: 1px solid var(--obra-borda);
       border-radius: 9px;
     }
 
     .video-card video {
       display: block;
       width: 100%;
-      max-height: 380px;
-      background: #101820;
+      max-height: 420px;
+      background: #05080b;
       border-radius: 5px;
     }
 
+    /* ESTADO VAZIO E ERROS */
+
     .vazio {
-      background: var(--branco);
-      color: var(--cinza);
-      border: 1px dashed #cbd3dc;
-      border-radius: 8px;
-      padding: 28px;
-      text-align: center;
       grid-column: 1 / -1;
+      padding: 35px 22px;
+      color: rgba(255, 255, 255, .58);
+      background: #101820;
+      border: 1px dashed rgba(255, 255, 255, .17);
+      border-radius: 8px;
+      text-align: center;
     }
 
     .carregando {
       max-width: 700px;
-      margin: 70px auto;
-      padding: 30px 24px;
+      margin: 40px auto;
+      padding: 35px 24px;
+      color: var(--obra-cinza);
       text-align: center;
-      color: var(--cinza);
     }
 
     .carregando h2 {
-      color: var(--azul);
       margin-bottom: 10px;
+      color: #fff;
     }
 
     .erro {
-      color: #a32626;
-      background: #fff0f0;
-      border: 1px solid #f2c5c5;
-      padding: 18px;
+      padding: 22px;
+      color: #ffdada;
+      background: rgba(163, 38, 38, .14);
+      border: 1px solid rgba(255, 100, 100, .4);
       border-radius: 8px;
-      margin-top: 20px;
     }
 
+    /* CONTATO */
+
     .contato {
-      background: var(--azul);
-      color: var(--branco);
-      padding: 35px;
-      border-radius: 10px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 30px;
+      padding: 38px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 100% 0,
+          rgba(255, 118, 0, .13),
+          transparent 45%
+        ),
+        linear-gradient(135deg, #111a23, #0b1117);
+      border: 1px solid rgba(255, 118, 0, .32);
+      border-radius: 10px;
+    }
+
+    .contato > div {
+      min-width: 0;
     }
 
     .contato h2 {
-      font-size: clamp(22px, 3vw, 29px);
-      margin-bottom: 8px;
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: clamp(23px, 3vw, 32px);
+      line-height: 1.25;
     }
 
     .contato p {
-      color: #dce4ed;
-      max-width: 600px;
+      max-width: 650px;
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.8;
     }
 
     .botao-contato {
-      background: var(--laranja);
-      color: var(--branco);
+      display: inline-flex;
       flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      min-height: 50px;
+      padding: 13px 20px;
+      color: #fff;
+      background: var(--obra-laranja);
+      border: 2px solid var(--obra-laranja);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: background .25s ease, transform .25s ease;
     }
 
     .botao-contato:hover {
       background: #e86800;
+      border-color: #e86800;
+      transform: translateY(-2px);
     }
 
-    footer {
-      background: #101c2b;
-      color: #cbd3dc;
-      padding: 25px 20px;
-      text-align: center;
-      font-size: 13px;
+    /* RODAPÉ GLOBAL */
+
+    .rodape {
+      position: relative;
+      overflow: hidden;
     }
 
-    .rodape-marca {
-      color: var(--branco);
-      font-weight: 800;
-    }
-
-    .rodape-marca span {
-      color: var(--laranja);
-    }
+    /* LIGHTBOX */
 
     .lightbox {
-      display: none;
       position: fixed;
       inset: 0;
-      z-index: 100;
-      padding: 25px;
-      background: rgba(7, 13, 22, 0.94);
+      z-index: 99999;
+      display: none;
       align-items: center;
       justify-content: center;
+      padding: 35px;
+      background: rgba(0, 0, 0, .95);
     }
 
     .lightbox.aberto {
@@ -354,47 +396,95 @@
     }
 
     .lightbox img {
-      max-width: 95%;
-      max-height: 90vh;
+      max-width: 94vw;
+      max-height: 88vh;
       object-fit: contain;
+      border-radius: 5px;
+      box-shadow: 0 25px 90px rgba(0, 0, 0, .5);
     }
 
     .fechar-lightbox {
       position: absolute;
-      top: 15px;
-      right: 22px;
-      background: transparent;
-      border: 0;
+      top: 18px;
+      right: 25px;
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 0, 0, .4);
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 50%;
       color: white;
-      font-size: 36px;
+      font-size: 30px;
       cursor: pointer;
     }
 
-    @media (max-width: 760px) {
-      .cabecalho-conteudo {
-        padding: 14px 16px;
-        min-height: 75px;
+    .fechar-lightbox:hover {
+      background: var(--obra-laranja);
+      border-color: var(--obra-laranja);
+    }
+
+    /* ACESSIBILIDADE */
+
+    .botao-contato:focus-visible,
+    .fechar-lightbox:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    /* TABLETS */
+
+    @media (max-width: 900px) {
+      .obra-conteudo {
+        padding: 45px 22px 65px;
       }
 
-      .marca {
-        font-size: 19px;
+      .galeria {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .botao {
-        padding: 11px 13px;
-        font-size: 12px;
+      .foto {
+        height: 230px;
       }
 
-      .hero {
-        padding: 48px 18px 58px;
+      .contato {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 30px;
       }
 
-      .pagina {
-        padding: 0 16px 40px;
+      .botao-contato {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+
+    /* CELULARES */
+
+    @media (max-width: 700px) {
+      .obra-hero {
+        min-height: 245px;
+        padding: 65px 18px 45px;
+      }
+
+      .obra-etiqueta {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .obra-hero h1 {
+        font-size: clamp(30px, 8vw, 42px);
+      }
+
+      .obra-hero p {
+        font-size: 14px;
+      }
+
+      .obra-conteudo {
+        padding: 38px 18px 55px;
       }
 
       .informacoes {
         grid-template-columns: 1fr;
+        margin-bottom: 38px;
       }
 
       .info {
@@ -403,103 +493,224 @@
 
       .info + .info {
         border-left: none;
-        border-top: 1px solid var(--borda);
+        border-top: 1px solid var(--obra-borda);
+      }
+
+      .obra-secao {
+        margin-bottom: 38px;
+      }
+
+      .descricao-card {
+        padding: 22px;
+      }
+
+      .descricao-card p {
+        font-size: 14px;
       }
 
       .galeria {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
       }
 
       .foto {
-        height: 180px;
+        height: 190px;
       }
 
       .video-grid {
         grid-template-columns: 1fr;
       }
 
-      .descricao-card {
-        padding: 20px;
-      }
-
       .contato {
+        gap: 22px;
         padding: 25px 20px;
-        align-items: flex-start;
-        flex-direction: column;
       }
     }
 
     @media (max-width: 420px) {
-      .cabecalho-conteudo {
-        gap: 10px;
-      }
-
-      .marca {
-        font-size: 16px;
-      }
-
-      .marca span {
-        font-size: 10px;
-        letter-spacing: 3px;
-      }
-
       .galeria {
         grid-template-columns: 1fr;
       }
 
       .foto {
-        height: 230px;
+        height: 240px;
+      }
+
+      .obra-titulo-secao h2 {
+        font-size: 25px;
+      }
+
+      .lightbox {
+        padding: 15px;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- CABEÇALHO PADRÃO DO SITE -->
   <header class="cabecalho">
-    <div class="cabecalho-conteudo">
-      <a class="marca" href="index.html">
-        RM ENGENHARIA
-        <span>PROJETOS E EXECUÇÃO</span>
+    <div class="container cabecalho-conteudo">
+
+      <a href="index.html" class="logo">
+        <img src="imagens/logo-rm-engenharia.png"
+             alt="RM Engenharia">
       </a>
 
-      <a class="botao botao-voltar" href="index.html">
-        ← Voltar ao site
+      <button class="menu-mobile"
+              type="button"
+              aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="menu">
+        <a href="index.html">Início</a>
+
+        <div class="menu-dropdown">
+          <a href="servico.html"
+             class="menu-servicos"
+             aria-expanded="false">
+            Serviços
+            <span class="seta"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Abrir opções de serviços"></span>
+          </a>
+
+          <div class="dropdown-opcoes">
+            <a href="servicos/construcao.html">
+              Construção Civil e Facilities
+            </a>
+
+            <a href="servicos/metal.html">
+              Estruturas Metálicas
+            </a>
+
+            <a href="servico.html">
+              Portfólio de Obras
+            </a>
+          </div>
+        </div>
+
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+
+      <a href="https://wa.me/5512988872221?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20RM%20Engenharia.%20Vim%20pelo%20site."
+         target="_blank"
+         rel="noopener noreferrer"
+         class="botao-orcamento">
+        FAÇA SEU ORÇAMENTO
       </a>
+
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-conteudo">
-      <span class="etiqueta">Portfólio de obras</span>
-      <h1 id="nomeObra">Carregando detalhes da obra...</h1>
-      <p id="resumoObra">
-        Conheça o projeto, suas características e as etapas de execução.
-      </p>
-    </div>
-  </section>
+  <div class="pagina-obra">
 
-  <main class="pagina" id="conteudoPrincipal">
-    <div class="carregando">
-      <h2>Preparando os detalhes</h2>
-      <p>Aguarde enquanto carregamos as informações da obra.</p>
-    </div>
-  </main>
+    <!-- BANNER DINÂMICO -->
+    <section class="obra-hero">
+      <div class="obra-hero-conteudo">
 
-  <footer>
-    <p>
-      © <span id="anoAtual"></span>
-      <span class="rodape-marca">RM <span>ENGENHARIA</span></span>.
-      Todos os direitos reservados.
-    </p>
-  </footer>
+        <span class="obra-hero-linha"></span>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da foto">
-    <button class="fechar-lightbox" id="fecharLightbox" aria-label="Fechar imagem">×</button>
-    <img id="imagemAmpliada" src="" alt="Foto ampliada da obra">
+        <span class="obra-etiqueta">
+          RM ENGENHARIA · PORTFÓLIO DE OBRAS
+        </span>
+
+        <h1 id="nomeObra">Carregando detalhes da obra...</h1>
+
+        <p id="resumoObra">
+          Conheça o projeto, suas características e as etapas de execução.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- O JAVASCRIPT CONTINUA PREENCHENDO ESTE ELEMENTO -->
+    <main class="obra-conteudo" id="conteudoPrincipal">
+      <div class="carregando">
+        <h2>Preparando os detalhes</h2>
+        <p>Aguarde enquanto carregamos as informações da obra.</p>
+      </div>
+    </main>
+
   </div>
 
-  <!-- Supabase -->
+  <!-- RODAPÉ PADRÃO DO SITE -->
+  <footer class="rodape">
+    <div class="rodape-detalhe rodape-detalhe-1"></div>
+    <div class="rodape-detalhe rodape-detalhe-2"></div>
+
+    <div class="rodape-container">
+
+      <div class="rodape-coluna rodape-informacoes">
+        <h3>INFORMAÇÕES</h3>
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="servico.html">Serviços</a>
+        <a href="contato.html">Contato</a>
+      </div>
+
+      <div class="rodape-coluna">
+        <h3>SERVIÇOS</h3>
+        <a href="servicos/construcao.html">Construção Civil e Facilities</a>
+        <a href="servicos/metal.html">Estruturas Metálicas</a>
+        <a href="servico.html">Portfólio de Obras</a>
+      </div>
+
+      <div class="rodape-coluna rodape-contato">
+        <h3>CONTATO</h3>
+        <p>
+          Av. Alfredo Ignácio Nogueira Penido, 335 - Altos<br>
+          do Esplanada, São José dos Campos - SP
+        </p>
+
+        <h4>TELEFONE</h4>
+        <p>+55 (12) 9 8887-2221</p>
+
+        <h4>E-MAIL</h4>
+        <p>contato@rmservicoseconstrucao.com.br</p>
+
+        <h4>HORÁRIO</h4>
+        <p>Seg. a Sex.: 08:00 às 18:00</p>
+      </div>
+
+      <div class="rodape-logo">
+        <img src="imagens/logo-rm-engenharia.png"
+             alt="RM Engenharia">
+      </div>
+
+    </div>
+
+    <div class="rodape-final">
+      © <span id="anoAtual"></span> RM Engenharia, Serviços e Construções. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox"
+       id="lightbox"
+       role="dialog"
+       aria-modal="true"
+       aria-label="Visualização da foto">
+
+    <button class="fechar-lightbox"
+            id="fecharLightbox"
+            aria-label="Fechar imagem">×</button>
+
+    <img id="imagemAmpliada"
+         src=""
+         alt="Foto ampliada da obra">
+  </div>
+
+  <!-- =====================================================
+       JAVASCRIPT ORIGINAL DO SUPABASE
+       MANTIDO SEM ALTERAÇÕES
+       ===================================================== -->
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <script>
@@ -690,8 +901,8 @@
             </div>
           </section>
 
-          <section class="secao">
-            <div class="titulo-secao">
+          <section class="obra-secao">
+            <div class="obra-titulo-secao">
               <span>Sobre o projeto</span>
               <h2>Detalhes da obra</h2>
             </div>
@@ -701,8 +912,8 @@
             </div>
           </section>
 
-          <section class="secao">
-            <div class="titulo-secao">
+          <section class="obra-secao">
+            <div class="obra-titulo-secao">
               <span>Registro fotográfico</span>
               <h2>Galeria de imagens</h2>
             </div>
@@ -715,8 +926,8 @@
             </div>
           </section>
 
-          <section class="secao">
-            <div class="titulo-secao">
+          <section class="obra-secao">
+            <div class="obra-titulo-secao">
               <span>Execução do projeto</span>
               <h2>Vídeos da obra</h2>
             </div>
@@ -739,10 +950,13 @@
             </div>
 
             <a
-              class="botao botao-contato"
-              href="contato.html"
+              class="botao-contato"
+              href="https://wa.me/5512988872221?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20RM%20Engenharia.%20Vim%20pelo%20site."
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Falar com a RM ENGENHARIA →
+              Falar com a RM ENGENHARIA
+              <span aria-hidden="true">→</span>
             </a>
           </section>
         `;
@@ -784,5 +998,84 @@
       });
     })();
   </script>
+
+  <!-- MENU RESPONSIVO DO CABEÇALHO -->
+  <script>
+    (function () {
+      const menu = document.querySelector('.menu');
+      const botaoMenu = document.querySelector('.menu-mobile');
+      const servicos = document.querySelector('.menu-servicos');
+      const seta = servicos ? servicos.querySelector('.seta') : null;
+
+      if (!menu || !botaoMenu || !servicos || !seta) return;
+
+      seta.setAttribute('role', 'presentation');
+      seta.setAttribute('tabindex', '-1');
+      seta.setAttribute('aria-hidden', 'true');
+      seta.style.pointerEvents = 'none';
+
+      botaoMenu.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const aberto = menu.classList.toggle('menu-aberto');
+        botaoMenu.classList.toggle('ativo', aberto);
+        botaoMenu.setAttribute(
+          'aria-label',
+          aberto ? 'Fechar menu' : 'Abrir menu'
+        );
+
+        if (!aberto) {
+          servicos.classList.remove('aberto');
+          servicos.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      function alternarServicos(event) {
+        const rect = seta.getBoundingClientRect();
+        const margem = 24;
+
+        const naSeta =
+          event.clientX >= rect.left - margem &&
+          event.clientX <= rect.right + margem &&
+          event.clientY >= rect.top - margem &&
+          event.clientY <= rect.bottom + margem;
+
+        if (!naSeta) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const aberto = !servicos.classList.contains('aberto');
+        servicos.classList.toggle('aberto', aberto);
+        servicos.setAttribute('aria-expanded', String(aberto));
+      }
+
+      servicos.addEventListener('click', alternarServicos);
+
+      servicos.addEventListener('touchend', function (event) {
+        if (event.changedTouches.length !== 1) return;
+
+        const toque = event.changedTouches[0];
+        const rect = seta.getBoundingClientRect();
+        const margem = 24;
+
+        const naSeta =
+          toque.clientX >= rect.left - margem &&
+          toque.clientX <= rect.right + margem &&
+          toque.clientY >= rect.top - margem &&
+          toque.clientY <= rect.bottom + margem;
+
+        if (!naSeta) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const aberto = !servicos.classList.contains('aberto');
+        servicos.classList.toggle('aberto', aberto);
+        servicos.setAttribute('aria-expanded', String(aberto));
+      }, { passive: false });
+    })();
+  </script>
+
 </body>
 </html>
